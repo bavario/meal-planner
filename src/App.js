@@ -1,11 +1,17 @@
 import React from 'react';
-import { Toolbar, ToolbarButton, Icon, Page, } from 'react-onsenui';
+import { Navigator } from 'react-onsenui';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
-function App() {
-  return (
-    <Page renderToolbar={this.renderToolbar.bind(this)}></Page>
-  );
-}
+const renderPage = (route, navigator) => (
+  <route.component key={route.key} navigator={navigator} />
+);
+
+const App = () => (
+  <Navigator
+    renderPage={renderPage}
+    initialRoute={{component: Dashboard, key: 'DASHBOARD'}}
+  />
+);
 
 export default App;
