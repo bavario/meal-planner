@@ -1,7 +1,10 @@
 import React from 'react';
-import { Navigator } from 'react-onsenui';
+
+import {
+  Navigator
+} from 'react-onsenui';
+
 import Dashboard from './components/Dashboard';
-import './App.css';
 
 const renderPage = (route, navigator) => (
   <route.component key={route.key} navigator={navigator} />

@@ -9,8 +9,8 @@ import NavBar from './NavBar';
 //import AddLocation from '../containers/AddLocation';
 
 const MainPage = ({navigator}) => (
-  <Page renderToolbar={() => <NavBar title='Onsen Weather' navigator={navigator} />}>
-    Some Content
+  <Page renderToolbar={() => <NavBar title='Meal Planner' navigator={navigator} />}>
+    Here comes the content
   </Page>
 );
 
