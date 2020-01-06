@@ -8,7 +8,7 @@ import {
 
 import NavBar from './NavBar';
 import DashboardItem from './DashboardItem';
-import ReceipList from './ReceipList';
+import ReceipList from '../container/ReceipList';
 //import LocationList from '../containers/LocationList';
 //import AddLocation from '../containers/AddLocation';
 
