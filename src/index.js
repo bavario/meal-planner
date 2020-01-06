@@ -12,8 +12,9 @@ import * as serviceWorker from './serviceWorker';
 
 import ons from 'onsenui';
 
-import './index.css';
+//import './index.css';
 import 'onsenui/css/onsenui.css';
+import 'onsenui/css/onsen-css-components.css';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
