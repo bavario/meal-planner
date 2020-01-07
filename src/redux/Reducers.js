@@ -7,38 +7,35 @@ import {
   REMOVE_RECEIP 
 } from './Actions';
 
-const initialState = [
-  {
+const initialState = [{
     id: 0,
     name: 'Fleischpflanzerl',
-    rating: 5,
+    cookingCount: 5,
+    type: 'MAIN_DISH',
     thump: null
-  },
-  {
+  }, {
     id: 1,
     name: 'Gulasch',
-    rating: 5,
+    cookingCount: 137,
+    type: 'MAIN_DISH',
     thump: null
-  },
-  {
+  }, {
     id: 2,
-    name: 'Schnitzel',
-    rating: 3,
+    name: 'Rösti',
+    cookingCount: 3,
+    type: 'SIDE_DISH',
     thump: null
   }
 ];
 
- const receips = (state = initialState, action) => {
+
+const receips = (state = initialState, action) => {
    console.log (state);
   switch (action.type) {
     case ADD_RECEIP:
-      return {
-        ...state,
-      };
+      return this.state; //TODO
     case REMOVE_RECEIP:
-      const {...rest} = state;
-      delete rest[action.id];
-      return rest;
+      return state.filter(receip => receip.id !== action.id);
     default:
       return state;
   }

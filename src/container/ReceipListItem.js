@@ -31,25 +31,26 @@ const styles = {
 const ReceipListItem = ({
   id,
   name,
-  rating,
+  cookingCount,
+  type,
   thump,
   navigator,
   actions
 }) => {
 
   return (
-    <ListItem onClick={() => {
+    <ListItem tappable={true} onClick={() => {
       //navigator.pushPage({component: Receip});
     }} tappable>
       <div className='left'>
         <img class="list-item__thumbnail" src="https://placekitten.com/g/40/40" alt="{name}"/>
       </div>
       <div className='center'>
-        <div className='list__item__title'>
+        <div className='list-item__title'>
           {name}
         </div>
-        <div className='list__item__subtitle'>
-          {rating}
+        <div className='list-item__subtitle'>
+          {type === 'MAIN_DISH' ? 'Hauptgericht' : 'Beilage'}, {cookingCount} mal gekocht. 
         </div>
       </div>
       <div className='right' style={styles.buttons}>
