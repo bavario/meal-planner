@@ -6,10 +6,10 @@ import {
   Page
 } from 'react-onsenui';
 
-import ReceipListItem from './ReceipListItem';
+import RecipeListItem from './RecipeListItem';
 import NavBar from '../components/NavBar';
 
-const ReceipList = ({receips, navigator}) => {
+const RecipeList = ({recipes, navigator}) => {
   const tbiFunc = () => {
     alert('tbi');
   };
@@ -19,12 +19,12 @@ const ReceipList = ({receips, navigator}) => {
       <List
         style={{marginTop: 10}}
         modifier="inset"
-        dataSource={receips}
-        renderRow={(receip) => (
-          <ReceipListItem 
-            key={receip.id}  
+        dataSource={recipes}
+        renderRow={(recipe) => (
+          <RecipeListItem 
+            key={recipe.id}  
             navigator={navigator}
-            {...receip}
+            {...recipe}
           />
         )}
       />
@@ -33,7 +33,7 @@ const ReceipList = ({receips, navigator}) => {
 };
 
 const mapStateToProps = (state) => ({
-  receips: state.receips
+  recipes: state.recipes
 });
 
-export default connect(mapStateToProps)(ReceipList);
+export default connect(mapStateToProps)(RecipeList);

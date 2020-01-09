@@ -8,7 +8,7 @@ import {
 
 import NavBar from './NavBar';
 import DashboardItem from './DashboardItem';
-import ReceipList from '../container/ReceipList';
+import RecipeList from '../container/RecipeList';
 //import LocationList from '../containers/LocationList';
 //import AddLocation from '../containers/AddLocation';
 
@@ -16,7 +16,7 @@ const Dashboard = ({navigator}) => (
   <Page renderToolbar={() => <NavBar title='Meal Planner - Dashboard' navigator={navigator} />}>
     <Row>
       <Col width="50%">
-        <DashboardItem onClick={() => {navigator.pushPage({component: ReceipList, key: 'RECEIP_LIST'})}} title="Rezepte" img="https://monaca.io/img/logos/download_image_onsenui_01.png" text="Rezepte ansehen, hinzufügen und bearbeiten" navigator={navigator}/>
+        <DashboardItem onClick={() => {navigator.pushPage({component: RecipeList, key: 'RECIPE_LIST'})}} title="Rezepte" img="https://monaca.io/img/logos/download_image_onsenui_01.png" text="Rezepte ansehen, hinzufügen und bearbeiten" navigator={navigator}/>
       </Col>
       <Col width="50%">
         <DashboardItem title="Wochenplan" img="https://monaca.io/img/logos/download_image_onsenui_01.png" text="Rezepte ansehen, hinzufügen und bearbeiten"/>

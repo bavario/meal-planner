@@ -6,8 +6,7 @@ import { ListItem, Icon } from 'react-onsenui';
 import { platform } from 'onsenui';
 
 import * as Actions from '../redux/Actions';
-//import WeatherPage from './WeatherPage';
-//import WeatherIcon from '../components/WeatherIcon';
+import Recipe from './Recipe';
 
 const styles = {
   weatherIcon: {
@@ -28,20 +27,23 @@ const styles = {
   }
 };
 
-const ReceipListItem = ({
+const RecipeListItem = ({
   id,
   name,
   cookingCount,
   type,
   thump,
   navigator,
-  actions
+  actions,
+  loadRecipe
 }) => {
 
   return (
-    <ListItem tappable={true} onClick={() => {
-      //navigator.pushPage({component: Receip});
-    }} tappable>
+    <ListItem tappable={true} onClick={(e) => {
+      e.stopPropagation();
+      actions.doLoadRecipe(id);
+      navigator.pushPage({component: Recipe});
+    }}>
       <div className='left'>
         <img class="list-item__thumbnail" src="https://placekitten.com/g/40/40" alt="{name}"/>
       </div>
@@ -56,7 +58,7 @@ const ReceipListItem = ({
       <div className='right' style={styles.buttons}>
         <div onClick={(e) => {
           e.stopPropagation();
-          actions.removeReceip(id);
+          actions.removeRecipe(id);
         }}>
           <Icon icon='trash' className='weather-button' style={styles.removeButton} />
         </div>
@@ -74,4 +76,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   undefined,
   mapDispatchToProps
-)(ReceipListItem);
+)(RecipeListItem);
