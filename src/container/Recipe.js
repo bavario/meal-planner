@@ -8,6 +8,7 @@ import {
 } from 'react-onsenui';
 
 import NavBar from '../components/NavBar';
+import Ingredient from '../components/Ingredient';
 
 const Recipe = ({
   navigator,
@@ -16,25 +17,39 @@ const Recipe = ({
   const {
     loading,
     id,
+    duration,
     name,
-    desc,
     img,
     cookingCount,
     type,
-    ingredients 
+    ingredients ,
+    making
   } = recipe; 
   
+  const ingredientList = ingredients.map((ingredient) => {
+    return <Ingredient {...ingredient}/>;
+  })
+
+  const makingList = making.map((step, index) => {
+    return <><h4>{index + 1}. Schritt</h4><p>{step}</p></>;
+  })
+
+
   return (
     <Page renderToolbar={() => <NavBar title={name} navigator={navigator} backButton={true} />}>
       {loading ? (
         <ProgressCircular/>    
       ) : (
         <Card>
+          <img src={img} alt={name} style={{width: 'calc(100% + 32px)', margin: '-16px -16px 0 -16px', borderTopLeftRadius: '4px', borderTopRightRadius: '4px'}}/>
           <div class='title'>{name} - {type}</div>
-          <div class='subtitle'>{cookingCount} mal gekocht.</div>
-          <p>{desc}</p>
-          <img src={img} alt={name}/>
-          Zutatenliste
+          <div class='subtitle'>
+            {cookingCount} mal gekocht. {duration} Minuten.
+          </div>
+          <h3>Zutaten</h3>
+          {ingredientList}
+          <h3>Zubereitung</h3>
+          <p>{makingList}</p>
         </Card>    
       )}  
     </Page>

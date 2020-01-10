@@ -48,20 +48,28 @@ const recipeInitState = {
   loading: false,
   id: 1,
   name: 'Gulasch',
-  desc: 'Mein allerliebstes Leibgericht wird jetzt beschreiben',
-  img: null,
+  img: 'https://ef-magazin.de/media/assets/article/2018/07/shutterstock_778711630.jpg.940x450_q75_box-0%2C562%2C6016%2C3446_crop_detail.jpg',
   cookingCount: 1337,
+  duration: 120,
   type: 'MAIN_DISH',
   ingredients: [{
       id: 0,
       name: 'Rindergulasch',
-      weight: '500'
-      //amount: null
+      amount: '500',
+      unit: 'g'
     }, {
       id: 1,
       name: 'Zwiebel',
-      amount: '1'
+      amount: '1',
+      unit: ''
     }
+  ],
+  making: [
+    'Bavaria ipsum dolor sit amet af Schaung kost nix Gamsbart. Biazelt baddscher Spezi, unbandig! Do i Sauwedda wolpern glei wia da Buachbinda Wanninger heid gfoids ma sagrisch guad mi, Ledahosn o’ha no. Zidern .',
+    'Broadwurschtbudn sammawiedaguad a liabs Deandl Weißwiaschd, des basd scho Kuaschwanz d’ Freibia de de Mongdratzal. Almrausch sammawiedaguad sauba du dadst ma scho daugn back mas Hetschapfah a Hoiwe g’hupft wia gsprunga Edlweiss.',
+    'Nackata mim hi mei, oa trihöleridi dijidiholleri o’ha Bladl gscheckate Bradwurschtsemmal. I moan oiwei amoi do wea nia ausgähd, kummt nia hoam nix Gwiass woass ma ned Mongdratzal Spotzerl wo hi Ledahosn Xaver?',
+    'Biazelt Spotzerl Gaudi wui, obacht. Is bittschön Milli singan Xaver hob d’ Maderln af mi. Obandln umananda mim kumm geh, om auf’n Gipfe!',
+    'Trachtnhuat Prosd Weibaleid, iabaroi: A bissal wos gehd ollaweil sodala back mas zua, i bin a woschechta Bayer hogg ma uns zamm Prosd Woibbadinga. Oachkatzlschwoaf Bussal a ganze Hoiwe greaßt eich nachad helfgod Landla auf’d Schellnsau, mi.'
   ]
 }
 
