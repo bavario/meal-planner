@@ -9,8 +9,6 @@ import {
 import NavBar from './NavBar';
 import DashboardItem from './DashboardItem';
 import RecipeList from '../container/RecipeList';
-//import LocationList from '../containers/LocationList';
-//import AddLocation from '../containers/AddLocation';
 
 const Dashboard = ({navigator}) => (
   <Page renderToolbar={() => <NavBar title='Meal Planner - Dashboard' navigator={navigator} />}>

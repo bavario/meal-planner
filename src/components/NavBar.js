@@ -7,7 +7,7 @@ import {
   ToolbarButton
 } from 'react-onsenui';
 
-const NavApp = ({title, navigator, backButton, searchFunc, addFunc}) => (
+const NavApp = ({title, navigator, backButton, searchFunc, addFunc, editFunc, useFunc}) => (
   <Toolbar>
     <div className='left'>
       {backButton ? <BackButton onClick={() => navigator.popPage()}>Zurück</BackButton> : <ToolbarButton>
@@ -24,6 +24,16 @@ const NavApp = ({title, navigator, backButton, searchFunc, addFunc}) => (
       {addFunc && (
         <ToolbarButton onClick={addFunc}>
           <Icon icon='md-plus' />
+        </ToolbarButton>
+      )}
+      {editFunc && (
+        <ToolbarButton onClick={editFunc}>
+          <Icon icon='md-edit' />
+        </ToolbarButton>
+      )}
+      {useFunc && (
+        <ToolbarButton onClick={useFunc}>
+          <Icon icon='md-calendar' />
         </ToolbarButton>
       )}
     </div>

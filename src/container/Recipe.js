@@ -7,6 +7,8 @@ import {
   ProgressCircular,
 } from 'react-onsenui';
 
+import styles from './Recipe.module.scss';
+
 import NavBar from '../components/NavBar';
 import Ingredient from '../components/Ingredient';
 
@@ -34,22 +36,27 @@ const Recipe = ({
     return <><h4>{index + 1}. Schritt</h4><p>{step}</p></>;
   })
 
+  const tbiFunc = () => {
+    alert('tbi');
+  };
 
   return (
-    <Page renderToolbar={() => <NavBar title={name} navigator={navigator} backButton={true} />}>
+    <Page renderToolbar={() => <NavBar title={name} navigator={navigator} backButton={true} editFunc={tbiFunc} useFunc={tbiFunc}/>}>
       {loading ? (
         <ProgressCircular/>    
       ) : (
-        <Card>
-          <img src={img} alt={name} style={{width: 'calc(100% + 32px)', margin: '-16px -16px 0 -16px', borderTopLeftRadius: '4px', borderTopRightRadius: '4px'}}/>
+        <Card className={styles.card}>
+          <img src={img} alt={name} className={styles.stage}/>
           <div class='title'>{name} - {type}</div>
           <div class='subtitle'>
             {cookingCount} mal gekocht. {duration} Minuten.
           </div>
+
           <h3>Zutaten</h3>
           {ingredientList}
+
           <h3>Zubereitung</h3>
-          <p>{makingList}</p>
+          {makingList}
         </Card>    
       )}  
     </Page>

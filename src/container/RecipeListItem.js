@@ -40,10 +40,11 @@ const RecipeListItem = ({
 
   return (
     <ListItem tappable={true} onClick={(e) => {
-      e.stopPropagation();
-      actions.doLoadRecipe(id);
-      navigator.pushPage({component: Recipe});
-    }}>
+        e.stopPropagation();
+        actions.doLoadRecipe(id);
+        navigator.pushPage({component: Recipe});
+      }}
+    >
       <div className='left'>
         <img class="list-item__thumbnail" src="https://placekitten.com/g/40/40" alt="{name}"/>
       </div>

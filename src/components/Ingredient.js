@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from './Ingredient.module.scss';
 
 const Ingredient = ({ name, amount, unit }) => {
   return (
-    <div style={{display: 'flex', padding: '5px 0', borderBottom: '1px solid #f5f5f5'}}>
-        <div style={{flex: 1}}>{amount} {unit}</div>
-        <div style={{flex: 2}}>{name}</div>
+    <div className={styles.row}>
+        <div className={styles.col1}>{amount} {unit}</div>
+        <div className={styles.col2}>{name}</div>
     </div>    
   );
 }

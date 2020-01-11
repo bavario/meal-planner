@@ -17,8 +17,6 @@ const RecipeList = ({recipes, navigator}) => {
   return (
     <Page renderToolbar={() => <NavBar title='Rezepte' navigator={navigator} searchFunc={tbiFunc} addFunc={tbiFunc}/>}>
       <List
-        style={{marginTop: 10}}
-        modifier="inset"
         dataSource={recipes}
         renderRow={(recipe) => (
           <RecipeListItem 
