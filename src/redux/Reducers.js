@@ -7,6 +7,7 @@ import {
   REMOVE_RECIPE,
   LOAD_RECIPE,
   FETCHED_RECIPE, 
+  FETCHED_RECIPES,
 } from './Actions';
 
 /** recipe-list reducers */
@@ -32,8 +33,12 @@ const initialState = [{
 ];
 
 const recipes = (state = initialState, action) => {
-
+  console.log(action)
   switch (action.type) {
+    case FETCHED_RECIPES:
+      debugger
+        state = action.data;
+        return state;
     case ADD_RECIPE:
       return state; //TODO
     case REMOVE_RECIPE:

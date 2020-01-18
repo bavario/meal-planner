@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as Actions from '../redux/Actions';
 
 import {
   List,
@@ -9,29 +11,49 @@ import {
 import RecipeListItem from './RecipeListItem';
 import NavBar from '../components/NavBar';
 
-const RecipeList = ({recipes, navigator}) => {
-  const tbiFunc = () => {
-    alert('tbi');
-  };
+class RecipeList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.tbiFunc = this.tbiFunc.bind(this);
+  }
 
-  return (
-    <Page renderToolbar={() => <NavBar title='Rezepte' navigator={navigator} searchFunc={tbiFunc} addFunc={tbiFunc}/>}>
-      <List
-        dataSource={recipes}
-        renderRow={(recipe) => (
-          <RecipeListItem 
-            key={recipe.id}  
-            navigator={navigator}
-            {...recipe}
-          />
-        )}
-      />
-    </Page>
-  );
+  componentDidMount() {
+    const { actions } = this.props;
+    actions.loadRecipes();
+  }
+  
+  tbiFunc() {
+    alert('tbi');
+  }
+
+  render() {
+    const { navigator, recipes } = this.props;
+
+    return (
+      <Page renderToolbar={() => <NavBar title='Rezepte' navigator={navigator} searchFunc={this.tbiFunc} addFunc={this.tbiFunc}/>}>
+        <List
+          dataSource={recipes}
+          renderRow={(recipe) => (
+            <RecipeListItem 
+              key={recipe.id}  
+              navigator={navigator}
+              {...recipe}
+            />
+          )}
+        />
+      </Page>
+    );
+  } 
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  };
 };
 
 const mapStateToProps = (state) => ({
   recipes: state.recipes
 });
 
-export default connect(mapStateToProps)(RecipeList);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeList);
