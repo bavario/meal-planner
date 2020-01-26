@@ -9,17 +9,24 @@ import {
 } from 'react-onsenui';
 
 import RecipeListItem from './RecipeListItem';
+import EditRecipe from './EditRecipe';
 import NavBar from '../components/NavBar';
 
 class RecipeList extends React.Component {
   constructor(props) {
     super(props);
     this.tbiFunc = this.tbiFunc.bind(this);
+    this.addFunc = this.addFunc.bind(this);
   }
 
   componentDidMount() {
     const { actions } = this.props;
     actions.loadRecipes();
+  }
+
+  addFunc() {
+    const { navigator } = this.props;
+    navigator.pushPage({component: EditRecipe});
   }
   
   tbiFunc() {
@@ -30,7 +37,7 @@ class RecipeList extends React.Component {
     const { navigator, recipes } = this.props;
 
     return (
-      <Page renderToolbar={() => <NavBar title='Rezepte' navigator={navigator} searchFunc={this.tbiFunc} addFunc={this.tbiFunc}/>}>
+      <Page renderToolbar={() => <NavBar title='Rezepte' navigator={navigator} searchFunc={this.tbiFunc} addFunc={this.addFunc}/>}>
         <List
           dataSource={recipes}
           renderRow={(recipe) => (

@@ -39,11 +39,40 @@ export const removeRecipe = id => ({
   id
 });
 
-export const addRecipe = (id, name) => ({
-  type: ADD_RECIPE,
-  id: 'asdaTODO',
-  name: name
-});
+export const addRecipe = (recipe) => async dispatch => {
+  fetch('http://localhost:3001/recipes', 
+    {
+      method: 'POST',
+      header: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(recipe)
+    })
+    .then(
+      function(response) {
+        if (response.status !== 200) {
+          //error handling
+          console.log('fetch recipe !== 200')
+          return [];
+        }
+
+        // Examine the text in the response
+        response.json().then(function(data) {
+          return {
+            type: addRecipe,
+            data: recipe
+          }
+        });
+      }
+    )
+    .catch(function(err) {
+      //errorhandling
+      console.log('Fetch Error :-S', err);
+      return [];
+    }
+  );
+};
 
 export const doLoadRecipe = (id) => async dispatch => {
   dispatch(loadRecipe());
