@@ -28,7 +28,7 @@ const styles = {
 };
 
 const RecipeListItem = ({
-  id,
+  _id,
   name,
   cookingCount,
   type,
@@ -41,7 +41,7 @@ const RecipeListItem = ({
   return (
     <ListItem tappable={true} onClick={(e) => {
         e.stopPropagation();
-        actions.doLoadRecipe(id);
+        actions.doLoadRecipe(_id);
         navigator.pushPage({component: Recipe});
       }}
     >
@@ -59,7 +59,7 @@ const RecipeListItem = ({
       <div className='right' style={styles.buttons}>
         <div onClick={(e) => {
           e.stopPropagation();
-          actions.removeRecipe(id);
+          actions.removeRecipe(_id);
         }}>
           <Icon icon='trash' className='weather-button' style={styles.removeButton} />
         </div>

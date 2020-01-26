@@ -18,7 +18,7 @@ const Recipe = ({
 }) => {
   const {
     loading,
-    id,
+    _id,
     duration,
     name,
     img,

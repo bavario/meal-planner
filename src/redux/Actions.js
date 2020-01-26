@@ -17,7 +17,6 @@ export const loadRecipes = () => async dispatch => {
 
         // Examine the text in the response
         response.json().then(function(data) {
-          console.log(data);
           dispatch(recipesLoaded(data.data));
         });
       }
@@ -60,11 +59,7 @@ export const doLoadRecipe = (id) => async dispatch => {
 
         // Examine the text in the response
         response.json().then(function(data) {
-          console.log(data);
-          return {
-            type: FETCHED_RECIPE,
-            recipe: data
-          };
+          dispatch(recipeLoaded(data.data));
         });
       }
     )
@@ -77,6 +72,11 @@ export const doLoadRecipe = (id) => async dispatch => {
 
   return {};
 };
+
+export const recipeLoaded = data => ({
+  type: FETCHED_RECIPE,
+  data: data
+});
 
 export const loadRecipe = () => ({
   type: LOAD_RECIPE,
